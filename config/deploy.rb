@@ -7,9 +7,11 @@ set :deploy_to,   '/var/www/imposter'
 
 # ruby configuration
 set :rbenv_type, :system
-set :rbenv_ruby, '2.1.10'
+set :rbenv_ruby, '2.4.0'
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, [:web, :workers]
+
+set :linked_dirs,      %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # puma configuration
 set :puma_threads,    [4, 16]
