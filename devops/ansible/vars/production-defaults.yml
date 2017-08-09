@@ -1,0 +1,5 @@
+---
+env: production
+
+nginx_server_name_list:
+  - www.imposter.chapman.edu

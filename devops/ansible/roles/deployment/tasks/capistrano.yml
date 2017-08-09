@@ -1,0 +1,19 @@
+---
+- name: Create deploy root directory
+  become: true
+  file:
+    state: directory
+    path: "{{ deploy_path }}"
+    owner: "{{ deploy_usr }}"
+    group: "{{ deploy_usr }}"
+    mode: u=rwx,g=rx,o=rx
+
+- name: Create capistrano directories
+  become: true
+  file:
+    state: directory
+    path: "{{ item }}"
+    owner: "{{ deploy_usr }}"
+    group: "{{ deploy_usr }}"
+    mode: u=rwx,g=rx,o=rx
+  with_items: "{{ capistrano_dir_paths }}"

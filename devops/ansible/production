@@ -1,0 +1,5 @@
+# Inventory File for production
+# Usage: ansible-playbook provision_webserver.yml -i production
+
+[webserver]
+production ansible_host=imposter.chapman.edu ansible_connection=ssh

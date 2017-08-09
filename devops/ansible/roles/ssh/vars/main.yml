@@ -1,0 +1,7 @@
+---
+ssh_config_path: /etc/ssh/sshd_config
+
+ssh_users:
+  - root
+  - wimops
+  - deploy

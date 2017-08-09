@@ -1,0 +1,6 @@
+---
+- include: deploy_user.yml
+  tags: ['deployment', 'deploy_user']
+
+- include: capistrano.yml
+  tags: ['deployment', 'capistrano']

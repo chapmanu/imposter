@@ -1,0 +1,6 @@
+---
+- name: Rehash rbenv
+  shell: rbenv rehash
+
+- name: Source bash profile
+  shell: source /etc/profile
