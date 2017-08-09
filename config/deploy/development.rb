@@ -1,4 +1,4 @@
- server "localhost:5555", user: "deploy", roles: %w{app web}
+server "localhost:2222", user: "deploy", roles: %w{app web}
 
 # The git branch for staging
 def current_git_branch

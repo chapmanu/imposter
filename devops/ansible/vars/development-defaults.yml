@@ -2,4 +2,4 @@
 env: development
 
 nginx_server_name_list:
-  - localhost:5555
+  - localhost.localdomain
