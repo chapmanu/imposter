@@ -1,7 +1,7 @@
-- name: install npm repo
-  become: true
-  yum:
-    name: epel-release.noarch
+- name: install required yum repos
+  yum: name={{ item }} state=latest
+  become: yes
+  with_items: "{{ common_yum_repos }}"
 
 - name: "Install required Yum packages."
   yum: name={{ item }} state=latest
@@ -11,7 +11,6 @@
 - name: "Install pip with easy_install."
   easy_install: name=pip state=latest
   become: yes
-
 
 - name: "Install required Python packages."
   pip: name={{ item }}

@@ -6,9 +6,6 @@ remote_app_root_dir: "{{ remote_app_root_path }}/current"
 app_env_name: "{{ app_name }}-{{ env }}"
 dev_usr: wimops
 
-#rhel
-rhel_optional_repo: rhel-7-server-optional-rpms
-
 #ssl
 ssl_path: /etc/pki/tls
 ssl_crt: "{{ ssl_path }}/certs/{{ app_env_name }}.crt"
@@ -17,6 +14,10 @@ ssl_private_key: "{{ ssl_path }}/private/{{ app_env_name }}.key"
 #app config path
 local_config_path: "{{ local_app_root_path }}/config"
 remote_config_path: "{{ remote_app_root_path  }}/shared/config"
+
+# yum
+common_yum_repos:
+  - epel-release.noarch
 
 common_yum_packages:
   - python
