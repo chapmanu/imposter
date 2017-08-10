@@ -11,6 +11,7 @@ set :rbenv_ruby, '2.4.0'
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, [:web, :workers]
 
+set :linked_files,     %w{config/secrets.yml.key}
 set :linked_dirs,      %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # puma configuration
