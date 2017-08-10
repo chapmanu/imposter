@@ -10,6 +10,7 @@ rbenv_dependencies:
   - libyaml-devel
   - libffi-devel
   - postgresql-devel
+  - sqlite-devel
   - readline-devel
   - zlib-devel
   - gdbm-devel

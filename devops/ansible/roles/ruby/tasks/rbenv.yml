@@ -26,6 +26,7 @@
 - name: install rbenv dependencies
   yum:
     name: "{{ item }}"
+    enablerepo: rhel-7-server-optional-rpms
     state: latest
   with_items: "{{ rbenv_dependencies }}"
   become: true
