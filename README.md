@@ -1,4 +1,4 @@
-# README
+# Imposter
 Imposter is a Rails application whose purpose is to mock services that are depended on by other web applications.
 
 ### Contents
