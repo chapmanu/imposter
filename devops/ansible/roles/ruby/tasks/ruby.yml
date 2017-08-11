@@ -1,0 +1,15 @@
+---
+- name: check ruby versions installed for system
+  shell: "rbenv versions --bare"
+  register: rbenv_versions
+  changed_when: False
+
+- name: Install ruby using rbenv
+  shell: bash -lc 'rbenv install {{ ruby_version }}'
+  when: ruby_version not in rbenv_versions.stdout
+
+- name: Set ruby versions
+  shell: bash -lc "rbenv {{ item }} && rbenv rehash"
+  with_items:
+    - global {{ ruby_version }}
+    - local {{ ruby_version }}

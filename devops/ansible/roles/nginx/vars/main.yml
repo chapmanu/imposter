@@ -1,0 +1,16 @@
+---
+nginx_worker_processes: 4
+nginx_worker_connections: 1024
+nginx_path: /etc/nginx
+
+nginx_dirs:
+  - sites-available
+  - sites-enabled
+
+sites_available:
+  - "{{ app_name }}"
+
+sites_enabled:
+  - "{{ app_name }}"
+
+puma_socket_dir: "{{ deploy_path }}/shared/tmp/sockets/puma.sock"

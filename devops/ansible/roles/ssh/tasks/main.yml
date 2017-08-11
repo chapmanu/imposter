@@ -1,0 +1,26 @@
+---
+- name: Capture existing allowed ssh users
+  become: true
+  shell: grep "AllowUsers" {{ ssh_config_path }} | cat
+  register: ssh_users_str
+
+- name: Add ssh users to sshd_config when AllowUsers line does not exist
+  become: true
+  lineinfile:
+    path: "{{ ssh_config_path }}"
+    insertafter: EOF
+    line: AllowUsers {{ ssh_users | join(" ") }}
+  when: ssh_users_str.stdout == ""
+  notify: Reload ssh service
+
+- name: Add ssh users to sshd_config when AllowUsers line already exists
+  become: true
+  lineinfile:
+    path: "{{ ssh_config_path }}"
+    regexp: '^\s*AllowUsers\s+(.*)$'
+    line: 'AllowUsers {{ item }} \1'
+    backrefs: yes
+    backup: yes
+  when: ssh_users_str.stdout | length > 0 and item not in ssh_users_str.stdout
+  with_items: "{{ ssh_users }}"
+  notify: Reload ssh service

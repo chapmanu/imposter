@@ -1,0 +1,5 @@
+# Inventory File for production
+# Usage: ansible-playbook provision_webserver.yml -i production
+
+[webserver]
+production ansible_host=impv-mkt-wb01 ansible_connection=ssh

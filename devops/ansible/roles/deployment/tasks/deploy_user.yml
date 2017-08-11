@@ -1,0 +1,35 @@
+---
+- name: Generate deploy user password
+  shell: openssl rand -base64 12 -out {{ deploy_usr_pw_path }}
+  args:
+    creates: "{{ deploy_usr_pw_path }}"
+
+- name: get generated password
+  shell: cat {{ deploy_usr_pw_path }}
+  register: deploy_usr_pw
+
+- name: Create deploy user
+  become: true
+  user:
+    name: "{{ deploy_usr }}"
+    password: "{{ deploy_usr_pw.stdout | password_hash('sha512') }}"
+    generate_ssh_key: yes
+    ssh_key_file: "{{ deploy_usr_ssh_path }}/id_rsa"
+
+- name: Update deploy user .ssh directory permissions
+  become: true
+  file:
+    path: "{{ deploy_usr_ssh_path }}"
+    state: directory
+    owner: "{{ deploy_usr }}"
+    group: "{{ deploy_usr }}"
+    mode: u=rwx
+
+- name: Update deploy user authorized_keys file permissions
+  become: true
+  file:
+    path: "{{ deploy_usr_ssh_path }}/authorized_keys"
+    state: touch
+    owner: "{{ deploy_usr }}"
+    group: "{{ deploy_usr }}"
+    mode: 600

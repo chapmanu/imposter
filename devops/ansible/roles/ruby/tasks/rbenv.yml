@@ -1,0 +1,80 @@
+---
+- name: Create rbenv group
+  group:
+    name: rbenv
+  become: true
+
+- name: Create rbenv root directory
+  file:
+    path: "{{ rbenv_root_path }}"
+    state: directory
+    owner: root
+    group: rbenv
+    mode: "g+rwxXs"
+  become: true
+
+- name: Add {{ dev_usr }} to rbenv group
+  user:
+    name: "{{ dev_usr }}"
+    groups: rbenv
+    append: yes
+  become: true
+
+- name: reset ssh connection to allow user changes to affect 'current login user'
+  meta: reset_connection
+
+- name: install rbenv dependencies
+  yum:
+    name: "{{ item }}"
+    enablerepo: rhel-7-server-optional-rpms
+    state: latest
+  with_items: "{{ rbenv_dependencies }}"
+  become: true
+
+- name: install rbenv
+  git:
+    repo: "{{ rbenv_src }}"
+    dest: "{{ rbenv_root_path }}"
+  become: true
+
+- name: Add rbenv to system
+  template:
+    src: rbenv.sh.j2
+    dest: /etc/profile.d/rbenv.sh
+    owner: root
+    group: root
+    mode: "u=rwx"
+  become: true
+  notify: Source bash profile
+
+# we need to create these ourselves or else rbenv will
+# create them with wrong privileges
+# https://stackoverflow.com/questions/31588604/rbenv-installation-permission-denied
+- name: Create additional rbenv directories
+  file:
+    path: "{{ rbenv_root_path  }}/{{ item }}"
+    state: directory
+  become: true
+  with_items: "{{ rbenv_directories }}"
+
+- name: Get all rbenv directories
+  find:
+    paths: "{{ rbenv_root_path }}"
+    file_type: directory
+  register: found_directories
+
+- name: Set group ownership of directories under {{ rbenv_root_path }}
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: root
+    group: rbenv
+    mode: "g+rwxXs"
+  become: true
+  with_items: "{{ found_directories.files }}"
+
+- name: Install ruby-build
+  git:
+    repo: "{{ ruby_build_repo }}"
+    dest: "{{ rbenv_root_path }}/plugins/ruby-build"
+  become: true

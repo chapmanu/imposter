@@ -1,0 +1,7 @@
+---
+env: production
+
+nginx_server_name_list:
+  - impv-mkt-wb01.chapman.edu
+  - imposter.chapman.edu
+  - www.imposter.chapman.edu

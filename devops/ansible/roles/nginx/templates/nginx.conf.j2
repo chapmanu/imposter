@@ -1,0 +1,20 @@
+worker_processes {{nginx_worker_processes}};
+
+events {
+  worker_connections  {{nginx_worker_connections}};
+}
+
+http {
+  include       mime.types;
+  default_type  application/octet-stream;
+
+  sendfile        on;
+
+  keepalive_timeout  65;
+  client_max_body_size 500M;
+
+  # Internet Explorer Hack to make it render latest version
+  add_header "X-UA-Compatible" "IE=Edge,chrome=1";
+
+  include {{ nginx_path }}/sites-enabled/*.conf;
+}

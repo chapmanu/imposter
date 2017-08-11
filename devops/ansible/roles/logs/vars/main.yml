@@ -1,0 +1,4 @@
+---
+logrotate_dir: /etc/logrotate.d
+imposter_log_dir: "{{ remote_app_root_dir }}/log"
+nginx_log_dir: /var/log/nginx
