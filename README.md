@@ -55,6 +55,14 @@ To deploy to production:
 ### Server Provisioning
 Webserver provisioning is automated with [Ansible](https://www.ansible.com/).
 
+
+
+- **Note**: Running the script for the first time may fail on the `rbenv` task and output a privilages error similar to:
+
+        rbenv: cannot rehash: /usr/local/rbenv/shims isn't writable
+
+    Run the script again and the error should be resolved.
+
 Playbooks must be run from the `ansible` directory:
 
 To provision a local VM:
