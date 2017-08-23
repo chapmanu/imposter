@@ -1,0 +1,88 @@
+.rave-simulator {
+  padding-top: 10px;
+
+  .nav-link {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .rave-status {
+    float: left;
+    width: 60px;
+    border-radius: 3px;
+    margin: 15px;
+
+    p {
+      text-align: center;
+      vertical-align: middle;
+      line-height: 60px;
+      font-size: 14px;
+    }
+
+    .rave-on {
+      border: 1px solid darkgreen;
+      border-radius: 3px;
+      background-color: mediumseagreen;
+      color: white;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .rave-off {
+      border: 1px solid maroon;
+      border-radius: 3px;
+      background-color: crimson;
+      color: white;    
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+  }
+
+  h3 {
+    padding-top: 15px;
+    float: left;
+  }
+
+  .toggle-container {
+    width: 80px;
+    height: 44px;
+    padding: 15px;
+    border-radius: 3px;
+    padding-top: 30px;
+    float: left;
+
+    .btn {
+      border: 1px solid grey;
+      padding: 6px 15px;
+      background-color: lightgrey;
+      color: black;
+      font-size: 14px;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .rave-feed {
+    clear: left;
+    padding-left: 15px;
+
+    .feed-table {
+      clear: left;
+      width: 700px;
+      border-top: 1px solid black;
+
+      tr {
+        th {
+          border: 0px;
+          padding: 20px;
+          font-weight: 200;
+
+        }
+
+        .time-field {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+}
+
