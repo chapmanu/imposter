@@ -10,7 +10,7 @@ class HomeController < ActionController::Base
     @status = Rails.cache.read("rave_status").nil? ? "off" : Rails.cache.read("rave_status")
   end
 
-  def send_alert
+  def toggle_alert
     status = request[:status] == "on" ? "off" : "on"
 
     Rails.cache.write("rave_status", status, expires_in: 5.minutes)

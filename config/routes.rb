@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get 'ping', to: 'ping#index'
 
   get 'rave', to: 'rave#index'
-  get 'home/send_alert', to: 'home#send_alert'
+  get 'home/toggle_alert', to: 'home#toggle_alert'
 
 end

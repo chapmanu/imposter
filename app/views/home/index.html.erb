@@ -14,7 +14,7 @@
 
         <div class="toggle-container">
           <% button_text = @status == "on" ? "Turn Off" : "Turn On" %>
-          <%= link_to button_text, {:action => "send_alert", :status => @status}, class: 'btn', local: true %>
+          <%= link_to button_text, {:action => "toggle_alert", :status => @status}, class: 'btn', local: true %>
         </div>
 
         </th>
