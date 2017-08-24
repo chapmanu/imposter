@@ -1,7 +1,7 @@
 class HomeControllerTest < ActionDispatch::IntegrationTest
   
   test "should turn on alert state" do
-    # should be off by default, if not previously set
+    Rails.cache.write("rave_status", "off")
     assert_equal "off", Rails.cache.read("rave_status")
 
     get home_send_alert_path
