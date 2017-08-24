@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class HomeControllerTest < ActionDispatch::IntegrationTest
   test "should turn on alert state" do
     Rails.cache.write("rave_status", "off")

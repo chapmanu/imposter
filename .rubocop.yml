@@ -46,21 +46,15 @@ Style/SymbolArray:
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
 
-# This cop no longer recognized.
-# has_key? and has_value? are far more readable than key? and value?
-#Style/DeprecatedHashMethods:
-#  Enabled: false
-
-# Options: format, sprintf, percent
-#Style/FormatString:
-#  EnforcedStyle: false
+# Frozen string literal: http://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Style/FrozenStringLiteralComment
+Style/FrozenStringLiteralComment:
+  Enabled: false
 
 Style/CollectionMethods:
   Enabled: true
   PreferredMethods:
     # inject seems more common in the community.
     reduce: "inject"
-
 
 # Either allow this style or don't. Marking it as safe with parenthesis
 # is silly. Let's try to live without them for now.

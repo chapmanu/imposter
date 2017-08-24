@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class PingController < ActionController::Base
   def index
     render json: {"data": "pong"}, status: 200

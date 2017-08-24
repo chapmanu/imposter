@@ -1,6 +1,5 @@
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-# frozen_string_literal: true
 
 class ActiveSupport
   class TestCase

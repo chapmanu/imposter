@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class RaveControllerTest < ActionDispatch::IntegrationTest
   test "should simulate emergency alerts" do
     Rails.cache.write("rave_status", "on")

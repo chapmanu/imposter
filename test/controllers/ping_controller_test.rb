@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class PingControllerTest < ActionDispatch::IntegrationTest
   test "Ping responds with json" do
     get ping_url
