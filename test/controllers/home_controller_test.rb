@@ -11,7 +11,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should turn off alert state" do
-    get home_send_alert_path, params: {:status => "on"}
+    get home_send_alert_path, params: {status: "on"}
 
     assert_redirected_to root_path
     assert_equal "off", Rails.cache.read("rave_status")

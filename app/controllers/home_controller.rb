@@ -5,24 +5,16 @@ class HomeController < ActionController::Base
   layout 'application'
 
   def index
-    @status = Rails.cache.read("rave_status")
+    # cache is nil if not set or if expired
+    # rave_status expires after 5 minutes, goes back to off by default
+    @status = Rails.cache.read("rave_status").nil? ? "off" : Rails.cache.read("rave_status")
   end
 
   def send_alert
-    if request[:status] == "on"
-      status = "off"
-    else
-      status = "on"
-    end
+    status = request[:status] == "on" ? "off" : "on"
 
-    Rails.cache.write("rave_status", status)
+    Rails.cache.write("rave_status", status, expires_in: 5.minutes)
     redirect_to :action => 'index'
   end
 
-  def live_feed
-    url = "http://www.getrave.com/rss/chapman/channel1"
-    open(url) do |rss|
-      feed = RSS::Parser.parse(rss, do_validate=false)
-    end
-  end 
 end

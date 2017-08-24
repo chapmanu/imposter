@@ -24,7 +24,7 @@ xml.rss :version => "2.0" do
       end
 
       xml.category "Panther Alerts"
-      xml.pubDate Time.now.strftime("%m/%d/%Y %H:%M%p")
+      xml.pubDate Time.zone.now.strftime("%m/%d/%Y%l:%M%p")
       xml.guid
       xml.link
     end

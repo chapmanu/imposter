@@ -7,23 +7,13 @@
         <th>
         
         <div class="rave-status">
-          <% if @status == "on" %>
-            <p class="rave-on">ON</p>
-          <% else %>
-            <p class="rave-off">OFF</p>
-          <% end %>
+          <p class="rave-<%= @status %>"><%= @status.upcase %></p>
         </div>
         
-        <%= link_to "Rave Simulator", rave_url(:format => :rss), class: 'btn' %>
+        <%= link_to "Rave Simulator", rave_url(format: 'rss'), class: 'btn' %>
 
         <div class="toggle-container">
-
-          <% if @status == "on" %>
-            <% button_text = "Turn Off" %>
-          <% else %>
-            <% button_text = "Turn On" %>
-          <% end %>
-
+          <% button_text = @status == "on" ? "Turn Off" : "Turn On" %>
           <%= link_to button_text, {:action => "send_alert", :status => @status}, class: 'btn', local: true %>
         </div>
 
