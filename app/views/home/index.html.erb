@@ -1,7 +1,34 @@
 <div class="container">
   <h1>Welcome to Imposter!</h1>
-  <h3>Tools</h3>
-  <ul>
-    <li><%= link_to "Rave Simulator", rave_simulation_path %></li>
-  </ul>
+  
+  <div class="rave-controls">
+    <table class="rave-table">
+      <tr>
+        <th>
+        
+        <div class="rave-status">
+          <% if @status == "on" %>
+            <p class="rave-on">ON</p>
+          <% else %>
+            <p class="rave-off">OFF</p>
+          <% end %>
+        </div>
+        
+        <%= link_to "Rave Simulator", rave_url(:format => :rss), class: 'btn' %>
+
+        <div class="toggle-container">
+
+          <% if @status == "on" %>
+            <% button_text = "Turn Off" %>
+          <% else %>
+            <% button_text = "Turn On" %>
+          <% end %>
+
+          <%= link_to button_text, {:action => "send_alert", :status => @status}, class: 'btn', local: true %>
+        </div>
+
+        </th>
+      </tr>
+    </table>
+  </div>
 </div>
