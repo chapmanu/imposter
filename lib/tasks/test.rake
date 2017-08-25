@@ -1,4 +1,4 @@
-# require 'rubocop/rake_task'
+require 'rubocop/rake_task'
 # Add additional test suite definitions to the default test task here
 namespace :test do
   desc 'Runs RuboCop on specified directories'
