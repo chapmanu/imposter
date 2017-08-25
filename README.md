@@ -17,6 +17,8 @@ Imposter is a Rails application whose purpose is to mock services that are depen
     cd imposter
     bundle install
 
+The master encryption key can be found in PassPack. Place the key under `config/` in a new file called `secrets.yml.key`. You will need this key to run tests.
+
 ### Development
 #### Running local server
 To start a local puma server:

@@ -1,2 +1,63 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.rave-controls {
+  padding-left: 15px;
+  margin-top: 20px;
+
+  .rave-status {
+    float: left;
+    width: 60px;
+    border-radius: 3px;
+    margin: 15px;
+
+    p {
+      text-align: center;
+      vertical-align: middle;
+      line-height: 30px;
+      font-size: 14px;
+    }
+
+    .rave-on {
+      border-radius: 3px;
+      background-color: mediumseagreen;
+      color: white;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .rave-off {
+      border-radius: 3px;
+      background-color: crimson;
+      color: white;    
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .btn {
+    padding-top: 15px;
+    font-size: 18px;
+  }
+
+  .toggle-container {
+    width: 80px;
+    height: 44px;
+    padding: 15px;
+    border-radius: 3px;
+    float: right;
+
+    .btn {
+      border: 1px solid grey;
+      padding: 6px 15px;
+      background-color: lightgrey;
+      color: black;
+      font-size: 14px;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .rave-table {
+    width: 700px;
+    border-top: 1px solid black;
+  }
+}
