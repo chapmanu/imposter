@@ -9,4 +9,5 @@
     - gcc
     - gcc-c++
     - postgresql-devel
+    - sqlite-devel
   become: yes
