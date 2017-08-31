@@ -1,31 +1,35 @@
 source 'https://rubygems.org'
 
+# Is this being used? If so, please add comment.
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
+
+# NOTE: This app does not yet require a database. When it does, we should use postgres.
+# Use sqlite3 as the database for Active Record
+#gem 'sqlite3'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
+# Asset Stuff.
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
+# We do not use CoffeeScript.
+# Use CoffeeScript for .coffee assets and views
+# gem 'coffee-rails', '~> 4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
