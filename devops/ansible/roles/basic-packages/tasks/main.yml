@@ -20,8 +20,7 @@
 
 # This is required for the rbenv role. CentOS is ok but Red Hat requires extra repo.
 # See https://github.com/zzet/ansible-rbenv-role/issues/109
-- debug:
-    msg: "Ansible distribution is {{ ansible_distribution }}"
-- name: "Enable extra Red Hat repositories with required packages."
-  shell: yum-config-manager --enable rhel-7-server-optional-rpms
-  when: ansible_distribution == 'RedHat'
+# Source: https://github.com/tjtoml/mattermost-ansible/blob/master/roles/letsencrypt/tasks/main.yml
+- name: Enable RHEL 7 Server Optional RPMs (RHEL 7 only)
+  command: subscription-manager repos --enable rhel-7-server-optional-rpms
+  when: (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7")

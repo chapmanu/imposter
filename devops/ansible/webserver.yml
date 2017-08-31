@@ -1,10 +1,10 @@
 #
 # To run playbook:
 #   cd devops/ansible
-#   ansible-playbook webserver.yml -i hosts/vm
+#   ansible-playbook webserver.yml -i hosts/virtualbox
 #
 # To run specific roles, tag the role(s) dev and use the --tags option:
-#   ansible-playbook webserver.yml -i hosts/vm --tags dev -v
+#   ansible-playbook webserver.yml -i hosts/virtualbox --tags dev -v
 #
 # See group_vars/webserver for more info on each role.
 #
