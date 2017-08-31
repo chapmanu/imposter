@@ -1,0 +1,9 @@
+---
+# This will do the ssh-copy-id step for current user so cap can deploy.
+# Other devs will need to look up deploy user password in PassPack and run ssh-copy-id.
+- name: Set authorized key for remote user copying it from current user
+  authorized_key:
+    user: "{{ app_user }}"
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+  become: yes

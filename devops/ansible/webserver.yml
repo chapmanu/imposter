@@ -16,10 +16,9 @@
     - { role: geerlingguy.repo-epel, become: yes }
     - { role: geerlingguy.nodejs, become: yes }
     - { role: ontic.account, become: yes }
-    - { role: tjarrett.selfsignedcertificate, become: yes, when: self_signed_cert }
+    - { role: tjarrett.selfsignedcertificate, become: yes, when: use_self_signed_cert }
     - { role: zzet.rbenv }
     - { role: geerlingguy.nginx, become: yes }
     - { role: rails-application }
-    - { role: puma }
     - { role: nickhammond.logrotate, become: yes }
     - { role: geerlingguy.firewall, become: yes }

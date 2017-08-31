@@ -31,7 +31,7 @@ account_users:
 #
 # Role: tjarrett.selfsignedcertificate
 #
-self_signed_cert: yes
+use_self_signed_cert: yes
 self_signed_cert_path: /etc/pki/tls/certs
 self_signed_cert_key_path: /etc/pki/tls/private
 self_signed_cert_filename: self-signed-cert
