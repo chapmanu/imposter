@@ -1,0 +1,6 @@
+#
+# Role: rails-application
+#
+nginx_server_names:
+  - localhost
+  - - "{{ app_name }}-vm.chapman.edu"
