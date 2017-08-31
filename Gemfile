@@ -11,7 +11,11 @@ gem 'rails', '~> 5.1.3'
 
 # NOTE: This app does not yet require a database. When it does, we should use postgres.
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+# Leaving this in since here since I think it's simpler than trying to remove it
+# after-the-fact and then readd it in the future. On that topic, see:
+# https://stackoverflow.com/a/6579055/6763239
+# https://stackoverflow.com/a/26065959/6763239
+gem 'sqlite3'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
