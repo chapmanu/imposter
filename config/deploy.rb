@@ -5,11 +5,11 @@ set :application, "imposter"
 set :repo_url, "git@github.com:chapmanu/imposter.git"
 set :deploy_to, '/var/www/imposter'
 
-# rbenv configuration
-set :rbenv_type, :system
-set :rbenv_ruby, '2.4.0'
+# Rbenv is under deploy user.
+set :rbenv_type, :user
+set :rbenv_ruby, '2.4.1'
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-set :rbenv_roles, [:web, :workers]
+set :rbenv_roles, [:web]
 
 # Linked files
 set :linked_files,     %w{config/secrets.yml.key}
