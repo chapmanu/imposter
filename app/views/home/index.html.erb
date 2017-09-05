@@ -11,7 +11,7 @@
           <p class="rave-<%= @status %>"><%= @status.upcase %></p>
         </div>
 
-        <%= link_to "Rave Simulator", rave_url(format: 'rss'), class: 'btn' %>
+        <%= link_to "Rave Simulator", rave_path(format: 'rss'), class: 'btn' %>
 
         <div class="toggle-container">
           <% button_text = @status == "on" ? "Turn Off" : "Turn On" %>
