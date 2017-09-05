@@ -99,6 +99,14 @@ nginx_remove_default_vhost: true
 nginx_client_max_body_size: "500M"
 
 #
+# Role: franklinkim.environment
+# Set environmental variables.
+#
+environment_config:
+  # Required for Puma. Override in host_vars.
+  RAILS_ENV: production
+
+#
 # Role: rails-application
 #
 puma_socket_dir: "{{ app_remote_path }}/shared/tmp/sockets/puma.sock"
