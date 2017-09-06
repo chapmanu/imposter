@@ -1,6 +1,0 @@
----
-- name: Rotate nginx log
-  shell: bash -lc 'logrotate -f /etc/logrotate.d/nginx-rotate'
-
-- name: Rotate rails log
-  shell: bash -lc 'logrotate -f /etc/logrotate.d/{{ app_name }}-rotate'

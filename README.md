@@ -21,9 +21,10 @@ The master encryption key can be found in PassPack. Place the key under `config/
 
 ### Development
 #### Running local server
-To start a local puma server:
+To start the local server, use webrick (puma is not configured to run locally):
 
-    rails s
+    rails s webrick
+
 Send browser to http://localhost:3000
 
 #### Running Tests
@@ -57,21 +58,14 @@ To deploy to production:
 ### Server Provisioning
 Webserver provisioning is automated with [Ansible](https://www.ansible.com/).
 
-
-
-- **Note**: Running the script for the first time may fail on the `rbenv` task and output a privilages error similar to:
-
-        rbenv: cannot rehash: /usr/local/rbenv/shims isn't writable
-
-    Run the script again and the error should be resolved.
-
 Playbooks must be run from the `ansible` directory:
 
-To provision a local VM:
+    cd devops/ansible
 
-    ansible-playbook provision_webserver.yml -i development
+To provision a local VirtualBox VM:
+
+    ansible-playbook webserver.yml -i hosts/virtualbox
 
 To provision production server:
 
-    ansible-playbook provision_webserver.yml -i production --ask-sudo-pass
-
+    ansible-playbook webserver.yml -i hosts/production --ask-sudo-pass

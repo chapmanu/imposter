@@ -1,6 +1,0 @@
-# Inventory File for dev (local VM)
-# Usage: ansible-playbook provision_webserver.yml -i development
-
-[webserver]
-# Note: ansible_become_pass is only OK for dev. Never use this for staging or production.
-development ansible_host=localhost ansible_port=2222 ansible_connection=ssh ansible_become_pass=chapman123

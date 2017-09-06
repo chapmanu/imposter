@@ -1,16 +1,17 @@
 <div class="container">
   <h1>Welcome to Imposter!</h1>
-  
+  <h4>Where the imposterable is posterable.</h4>
+
   <div class="rave-controls">
     <table class="rave-table">
       <tr>
         <th>
-        
+
         <div class="rave-status">
           <p class="rave-<%= @status %>"><%= @status.upcase %></p>
         </div>
-        
-        <%= link_to "Rave Simulator", rave_url(format: 'rss'), class: 'btn' %>
+
+        <%= link_to "Rave Simulator", rave_path(format: 'rss'), class: 'btn' %>
 
         <div class="toggle-container">
           <% button_text = @status == "on" ? "Turn Off" : "Turn On" %>

@@ -2,6 +2,11 @@
 - name: Ensure iptables is installed.
   package: name=iptables state=installed
 
+- name: Flush iptables the first time playbook runs.
+  command: >
+    iptables -F
+    creates=/etc/firewall.bash
+
 - name: Copy firewall script into place.
   template:
     src: firewall.bash.j2
@@ -10,7 +15,6 @@
     group: root
     mode: 0744
   notify: restart firewall
-  become: true
 
 - name: Copy firewall init script into place.
   template:
@@ -20,7 +24,6 @@
     group: root
     mode: 0755
   when: "ansible_service_mgr != 'systemd'"
-  become: true
 
 - name: Copy firewall systemd unit file into place (for systemd systems).
   template:
@@ -30,14 +33,12 @@
     group: root
     mode: 0644
   when: "ansible_service_mgr == 'systemd'"
-  become: true
 
 - name: Configure the firewall service.
   service:
     name: firewall
     state: "{{ firewall_state }}"
     enabled: "{{ firewall_enabled_at_boot }}"
-  become: true
 
 - include: disable-other-firewalls.yml
   when: firewall_disable_firewalld or firewall_disable_ufw
