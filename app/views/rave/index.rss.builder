@@ -16,8 +16,9 @@ xml.rss :version => "2.0" do
     xml.item do
 
       if @status == "on"
-        xml.title "ALERT: There is an emergency."
-        xml.description "ALERT: There is currently an emergency at Chapman University."
+        # The emergency panther alert format comes from a test alert published by Public Safety on 10/19/2017
+        xml.title "Panther Alert Test"
+        xml.description "This is a Panther Alert Test as part of the Great California Shakeout Earthquake Exercise. Drop, Cover, and Hold On for 60 seconds. This is just a test."
       else
         xml.title "There is currently no emergency."
         xml.description "There is currently no emergency at Chapman University."
