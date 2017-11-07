@@ -6,7 +6,7 @@ class RaveControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "Chapman Panther Alerts"
     assert_select "pubDate", Time.zone.now.strftime("%m/%d/%Y%l:%M%p")
-    assert_includes @response.body, "ALERT: There is an emergency."
+    assert_includes @response.body, "Panther Alert Test"
   end
 
   test "should simulate non-emergencies" do
