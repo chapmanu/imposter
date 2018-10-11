@@ -7,4 +7,12 @@ class RaveController < ActionController::Base
       format.rss { render layout: false }
     end
   end
+
+  def notification
+    @notification_status = Rails.cache.read("rave_notification_status")
+
+    respond_to do |format|
+      format.rss { render layout: false }
+    end
+  end
 end
