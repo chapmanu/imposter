@@ -20,6 +20,23 @@
 
         </th>
       </tr>
+
+      <tr>
+        <th>
+
+        <div class="rave-status">
+          <p class="rave-<%= @notification_status %>"><%= @notification_status.upcase %></p>
+        </div>
+
+        <%= link_to "Rave Notification Simulator", rave_notification_path(format: 'rss'), class: 'btn' %>
+
+        <div class="toggle-container">
+          <% button_text = @notification_status == "on" ? "Turn Off" : "Turn On" %>
+          <%= link_to button_text, {:action => "toggle_notification", :notification_status => @notification_status}, class: 'btn', local: true %>
+        </div>
+
+        </th>
+      </tr>
     </table>
   </div>
 </div>
